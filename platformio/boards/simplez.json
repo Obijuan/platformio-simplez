@@ -1,0 +1,22 @@
+{
+    "icestick-simplez": {
+        "build": {
+            "core": "icestick",
+            "f_cpu": "12000000L",
+            "cpu": "simplez",
+            "mcu": "ice40hx1k",
+            "variant": "",
+            "vid": "0x0403",
+            "pid": "0x6010"
+        },
+        "frameworks": ["simplez-fw"],
+        "name": "Simplez soft-processor on a Lattice iCEstick board",
+        "platform": "simplez",
+        "upload": {
+            "maximum_ram_size": 32768,
+            "maximum_size": 32768
+        },
+        "url": "https://github.com/Obijuan/simplez-fpga",
+        "vendor": "None"
+    }
+}
