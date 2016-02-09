@@ -5,14 +5,16 @@
 import os
 from os.path import join
 from SCons.Script import (AlwaysBuild, Builder, DefaultEnvironment,
-                          Glob)
+                          Glob, Default)
 
+# TARGET = 'prog.list'
 HOME = os.environ.get('HOME')
 LOCALBIN = join(HOME, '.local', 'bin')
-print("LOCALBIN: {}".format(LOCALBIN))
 
 env = DefaultEnvironment()
-env.Replace(ENV={'PATH': os.environ['PATH']})
+# print("PATH: {}".format(env['ENV']['PATH']))
+
+env['ENV']['PYTHONPATH'] = ''
 
 # -- Get the local folder in which the simplez tools should be installed
 piopackages_dir = env.subst('$PIOPACKAGES_DIR')
@@ -49,3 +51,4 @@ except IndexError:
 
 upload = env.Alias('upload', prog, 'sboot $SOURCE')
 AlwaysBuild(upload)
+Default(progs)
